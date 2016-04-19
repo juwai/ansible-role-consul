@@ -1,0 +1,17 @@
+{
+  "datacenter": "{{ consul_datacenter }}",
+
+  "data_dir": "{{ consul_data_dir }}",
+
+  "log_level": "{{ consul_log_level }}",
+
+  "node_name": "{{ consul_node_name }}",
+
+  "leave_on_terminate": {{ consul_leave_on_terminate }},
+
+  "start_join_wan": [
+  {%- for item in consul_cluster_addresses %}
+    "{{ item }}"{% if not loop.last -%},{% endif %}
+  {% endfor -%}
+  ]
+}

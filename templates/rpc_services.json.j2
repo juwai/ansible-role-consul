@@ -1,0 +1,15 @@
+{
+  "services": [
+  {%- for item in rpc_services %}
+    {
+      "name": "{{ item.name }}",
+      "tags": {{ item.tags }},
+      "port": {{ item.port }},
+      "check": {
+        "script": "{{ item.check }}",
+        "interval": "{{ item.interval }}"
+      }
+    }{% if not loop.last -%},{% endif -%}
+  {% endfor -%}
+  ]
+}

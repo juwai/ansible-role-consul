@@ -1,0 +1,10 @@
+{
+  "advertise_addr": "{{ consul_advertise_address }}",
+  "client_addr": "{{ consul_client_address }}",
+  "bind_addr": "{{ consul_bind_address }}",
+  "ports": {
+    "http": {{ consul_http_port }},
+    "rpc": {{ consul_rpc_port }},
+    "server": {{ consul_server_port }}
+  }
+}

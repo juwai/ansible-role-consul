@@ -1,0 +1,38 @@
+---
+- name: add common configuration
+  template:
+    src: "{{ item }}.j2"
+    dest: "{{ consul_conf_dir }}/{{ item }}"
+    owner: "{{ consul_user }}"
+    group: "{{ consul_group }}"
+  with_items:
+    - common.json
+    - connection.json
+  notify: supervisord restart consul
+
+- name: add server configuration
+  template:
+    src: server.json.j2
+    dest: "{{ consul_conf_dir }}/server.json"
+    owner: "{{ consul_user }}"
+    group: "{{ consul_group }}"
+  when: consul_server
+  notify: supervisord restart consul
+
+- name: install the supervisord config script
+  template:
+    src: supervisor.d_consul.conf.j2
+    dest: "{{ supervisord_config_dir }}/consul.conf"
+    owner: root
+    group: root
+    mode: 0644
+  when: consul_supervisor_enabled
+  notify: supervisord restart consul
+
+- name: add services configuration
+  template:
+    src: rpc_services.json.j2
+    dest: "{{ consul_conf_dir }}/rpc_services.json"
+    owner: "{{ consul_user }}"
+    group: "{{ consul_group }}"
+  notify: supervisord restart consul
