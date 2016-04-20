@@ -47,14 +47,14 @@ rpc_services:
   - {
     name: time_service,
     port: 8081,
-    tags: "['rpc']",
+    tags: '["rpc"]',
     check: "zerorpc --connect tcp://127.0.0.1:8081 --timeout 1 _zerorpc_ping",
     interval: 60s
   }
   - {
     name: place_service,
     port: 8082,
-    tags: "['rpc']",
+    tags: '["rpc"]',
     check: "zerorpc --connect tcp://127.0.0.1:8082 --timeout 1 _zerorpc_ping",
     interval: 60s
   }

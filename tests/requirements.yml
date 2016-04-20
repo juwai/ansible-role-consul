@@ -2,3 +2,4 @@
 - src: juwai.common
 - src: juwai.python27
 - src: juwai.supervisor
+- src: juwai.zerorpc-python

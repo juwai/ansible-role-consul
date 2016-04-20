@@ -9,7 +9,7 @@
         "script": "{{ item.check }}",
         "interval": "{{ item.interval }}"
       }
-    }{% if not loop.last -%},{% endif -%}
+    }{% if not loop.last %},{% endif -%}
   {% endfor -%}
   ]
 }
