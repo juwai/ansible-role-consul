@@ -26,8 +26,8 @@ json_false: "false"
 # config values from http://www.consul.io/docs/agent/options.html
 consul_datacenter: dc1
 consul_client_address: 0.0.0.0
-consul_advertise_address: "{{ ansible_host }}"
-consul_bind_address: "{{ ansible_host }}"
+consul_advertise_address: "{{ ansible_ssh_host }}"
+consul_bind_address: "{{ ansible_ssh_host }}"
 
 consul_http_port: 8500
 consul_rpc_port: 8400
@@ -35,7 +35,7 @@ consul_server_port: 8300
 
 consul_leave_on_terminate: "{{ json_false }}"
 consul_cluster_addresses:
-  - "{{ ansible_host }}"
+  - "{{ ansible_ssh_host }}"
 
 consul_retry_interval: 30s
 consul_retry_max: 10
