@@ -13,33 +13,33 @@ Role Variables
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-## server
+## consul_server
 
 Install consul on server or not.
 
-Default is `false`.
+Default is `true`.
 
-## supervisor_enabled
+## consul_supervisor_enabled
 
 Install consul in supervisor or not.
 
 Default is `true`.
 
-## user, group
+## consul_user, consul_group
 
 User and group for consul.
 
 Default is `consul:consul`.
 
-## version
+## consul_version
 
 Default consul version is `0.5.0`.
 
-## url, ui_url
+## consul_url, consul_ui_url
 
 URL to download consul and consul ui packages.
 
-## dir, conf_dir, data_dir, log_dir, ui_dir
+## consul_dir, consul_conf_dir, consul_data_dir, consul_log_dir, consul_ui_dir
 
 Directories for consul.
 

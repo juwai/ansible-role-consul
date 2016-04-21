@@ -15,7 +15,7 @@
 
 - get_url:
     url: "{{ consul_ui_url }}"
-    dest: /tmp/ui_{{ consul_version }}.zip
+    dest: /tmp/consul_ui_{{ consul_version }}.zip
     validate_certs: no
   when: consul_server == true
 
