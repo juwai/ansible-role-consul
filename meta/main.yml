@@ -23,9 +23,13 @@ galaxy_info:
   - name: EL
     versions:
     - 6
-  - name: Amazon
-    versions:
-    - 2015.09
+
+  # commented out amazon as 2015.09 is not recognized and causes
+  # validation errors on ansible galaxy
+  #
+  #- name: Amazon
+  #  versions:
+  #  - 2015.09
 
   galaxy_tags: [amazon, centos65, consul, python, supervisor]
 
