@@ -83,7 +83,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-        - { role: consul, when: server}
+        - { role: juwai.consul, when: server}
 
 License
 -------
