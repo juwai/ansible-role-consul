@@ -1,0 +1,14 @@
+[program:consul]
+command={{ consul_dir }}/bin/consul agent -config-dir={{ consul_conf_dir }}
+user={{ consul_user }}
+group={{ consul_group }}
+autostart=true
+autorestart=true
+redirect_stdout=true
+redirect_stderr=true
+stdout_logfile={{ consul_log_dir }}/consul.stdout.log
+stdout_logfile_maxbytes=20MB
+stdout_logfile_backups=10
+stderr_logfile={{ consul_log_dir }}/consul.stderr.log
+stderr_logfile_maxbytes=20MB
+stderr_logfile_backups=10

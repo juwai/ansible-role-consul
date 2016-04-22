@@ -1,0 +1,8 @@
+---
+# handlers file for consul
+- name: supervisord restart consul
+  supervisorctl:
+    name: consul
+    state: restarted
+  when: consul_supervisor_enabled
+  ignore_errors: true

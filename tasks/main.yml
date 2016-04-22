@@ -1,0 +1,4 @@
+---
+# tasks file for consul
+- include: install.yml
+- include: configure.yml
