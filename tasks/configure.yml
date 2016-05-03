@@ -8,7 +8,7 @@
   with_items:
     - common.json
     - connection.json
-  notify: supervisord restart consul
+  notify: supervisord update consul
 
 - name: add server configuration
   template:
@@ -17,7 +17,7 @@
     owner: "{{ consul_user }}"
     group: "{{ consul_group }}"
   when: consul_server
-  notify: supervisord restart consul
+  notify: supervisord update consul
 
 - name: install the supervisord config script
   template:
@@ -27,7 +27,7 @@
     group: root
     mode: 0644
   when: consul_supervisor_enabled
-  notify: supervisord restart consul
+  notify: supervisord update consul
 
 - name: add services configuration
   template:
@@ -35,4 +35,4 @@
     dest: "{{ consul_conf_dir }}/rpc_services.json"
     owner: "{{ consul_user }}"
     group: "{{ consul_group }}"
-  notify: supervisord restart consul
+  notify: supervisord update consul
