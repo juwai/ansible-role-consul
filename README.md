@@ -64,13 +64,11 @@ For example, install `time_service` and bind to `8081` port (also add `tags` and
 
 ```
 rpc_services:
-  - {
-    name: time_service,
-    port: 8081,
-    tags: "['rpc']",
-    check: zerorpc --connect tcp://127.0.0.1:8081 --timeout 1 _zerorpc_ping,
+  - name: time_service
+    port: 8081
+    tags: ["rpc"]
+    check: "zerorpc --connect tcp://127.0.0.1:8081 --timeout 1 _zerorpc_ping"
     interval: 60s
-  }
 ```
 
 Dependencies
