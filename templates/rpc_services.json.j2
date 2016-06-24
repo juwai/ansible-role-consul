@@ -3,7 +3,7 @@
   {%- for item in rpc_services %}
     {
       "name": "{{ item.name }}",
-      "tags": {{ item.tags }},
+      "tags": {{ item.tags | to_json }},
       "port": {{ item.port }},
       "check": {
         "script": "{{ item.check }}",
