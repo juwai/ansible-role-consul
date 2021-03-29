@@ -33,13 +33,19 @@ Default is `consul:consul`.
 
 ## consul_version
 
-Default consul version is `0.5.0`.
+Default consul version is `1.9.4`.
 
-## consul_url, consul_ui_url
+## consul_url
 
-URL to download consul and consul ui packages.
+URL to download consul package.
 
-## consul_dir, consul_conf_dir, consul_data_dir, consul_log_dir, consul_ui_dir
+## consul_ui
+
+Enable UI or not.
+
+Default is `true`.
+
+## consul_dir, consul_conf_dir, consul_data_dir, consul_log_dir
 
 Directories for consul.
 
@@ -48,7 +54,6 @@ Directories for consul.
 ├── bin
 ├── consul.d
 ├── data
-├── dist
 └── logs
 ```
 

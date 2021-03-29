@@ -6,7 +6,7 @@
       "tags": {{ item.tags | to_json }},
       "port": {{ item.port }},
       "check": {
-        "script": "{{ item.check }}",
+        "args": ["sh", "-c", "{{ item.check }}"],
         "interval": "{{ item.interval }}"
       }
     }{% if not loop.last %},{% endif -%}
