@@ -41,7 +41,7 @@ consul_retry_max: 10
 consul_server_name: "{{ inventory_hostname }}"
 consul_node_name: "{{ inventory_hostname }}"
 
-consul_ui: true
+consul_ui: "{{ json_true }}"
 
 rpc_services:
   - {
