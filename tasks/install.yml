@@ -13,12 +13,6 @@
     timeout: 60
   when: ansible_userspace_bits == "32"
 
-- get_url:
-    url: "{{ consul_ui_url }}"
-    dest: /tmp/consul_ui_{{ consul_version }}.zip
-    validate_certs: no
-  when: consul_server == true
-
 - group: name={{ consul_group }}
 - user: name={{ consul_user }} group={{ consul_group }}
 
@@ -35,12 +29,6 @@
   command: "unzip /tmp/consul_{{ consul_version }}.zip -d {{ consul_dir }}/bin"
   args:
     creates: "{{ consul_dir }}/bin/consul"
-
-- name: unpack the ui archive
-  command: "unzip /tmp/consul_ui_{{ consul_version }}.zip -d {{ consul_dir }}"
-  args:
-    creates: "{{ consul_ui_dir }}"
-  when: consul_server == true
 
 - name: make link to consul folder
   file: src={{ consul_dir }} dest=/opt/consul state=link

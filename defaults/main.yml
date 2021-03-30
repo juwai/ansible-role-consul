@@ -3,20 +3,18 @@
 consul_server: true
 consul_supervisor_enabled: true
 
-consul_user: consul
-consul_group: consul
+consul_user: "consul"
+consul_group: "consul"
 
-consul_version: 0.5.0
-consul_url: https://releases.hashicorp.com/consul/{{ consul_version }}/consul_{{ consul_version }}
-consul_ui_url: https://releases.hashicorp.com/consul/{{ consul_version }}/consul_{{ consul_version }}_web_ui.zip
+consul_version: "1.9.4"
+consul_url: "https://releases.hashicorp.com/consul/{{ consul_version }}/consul_{{ consul_version }}"
 
-consul_dir: /home/{{ consul_user }}/consul_{{ consul_version }}
+consul_dir: "/home/{{ consul_user }}/consul_{{ consul_version }}"
 consul_conf_dir: "{{ consul_dir }}/consul.d"
 consul_data_dir: "{{ consul_dir }}/data"
 consul_log_dir: "{{ consul_dir }}/logs"
-consul_ui_dir: "{{ consul_dir }}/dist"
 
-consul_log_level: info
+consul_log_level: "info"
 consul_bootstrap_expect: 1
 
 # make sure these get interpreted as strings not booleans
@@ -24,8 +22,8 @@ json_true: "true"
 json_false: "false"
 
 # config values from http://www.consul.io/docs/agent/options.html
-consul_datacenter: dc1
-consul_client_address: 0.0.0.0
+consul_datacenter: "dc1"
+consul_client_address: "0.0.0.0"
 consul_advertise_address: "{{ ansible_ssh_host }}"
 consul_bind_address: "{{ ansible_ssh_host }}"
 
@@ -37,24 +35,26 @@ consul_leave_on_terminate: "{{ json_false }}"
 consul_cluster_addresses:
   - "{{ ansible_ssh_host }}"
 
-consul_retry_interval: 30s
+consul_retry_interval: "30s"
 consul_retry_max: 10
 
 consul_server_name: "{{ inventory_hostname }}"
 consul_node_name: "{{ inventory_hostname }}"
 
+consul_ui: "{{ json_true }}"
+
 rpc_services:
   - {
-    name: time_service,
+    name: "time_service",
     port: 8081,
     tags: '["rpc"]',
     check: "zerorpc --connect tcp://127.0.0.1:8081 --timeout 1 _zerorpc_ping",
-    interval: 60s
+    interval: "60s"
   }
   - {
-    name: place_service,
+    name: "place_service",
     port: 8082,
     tags: '["rpc"]',
     check: "zerorpc --connect tcp://127.0.0.1:8082 --timeout 1 _zerorpc_ping",
-    interval: 60s
+    interval: "60s"
   }
